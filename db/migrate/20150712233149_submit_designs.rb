@@ -1,4 +1,4 @@
-class CreateDesigns < ActiveRecord::Migration
+class SubmitDesigns < ActiveRecord::Migration
   def change
     create_table :designs do |t|
       t.belongs_to :user
