@@ -1,4 +1,6 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+<%= link_to "View all designs", designs_path %><br>
+
+<% if current_user != nil %>
+Email: <%= current_user.email%><br>
+User Id: <%= current_user.id %>
+<%end%>

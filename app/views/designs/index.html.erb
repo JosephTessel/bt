@@ -1,3 +1,12 @@
 <h1>
   List of Designs
 </h1>
+<% @designs.each do |design| %>
+
+  <li><%= link_to design.design_name, design_path(design) %><br>
+  Description: <%= design.description %></li>
+  Created by: <%= design.user.email %><br>
+  User ID:<%= design.user_id %><br><br>
+<%end%>
+
+<%= link_to "Submit a Design", new_design_path %>
