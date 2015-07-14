@@ -4,6 +4,7 @@ class SubmitDesigns < ActiveRecord::Migration
       t.belongs_to :user
       t.string :design_name, null: false
       t.string :description
+      # t.string :genre --add to migration
 
       t.timestamps null: false
     end
