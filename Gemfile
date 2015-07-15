@@ -53,3 +53,6 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
+gem 'fog'
+gem 'rails_12factor', group: :production
+ruby "2.2.0"

@@ -1,0 +1,14 @@
+<section class="title">
+  <h1>
+<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%>'s Profile:
+</h1>
+</section>
+
+<% Design.where(user_id: @user.id).reverse.each do |x|%>
+<section class="design_name">
+<%= x.design_name %>
+</section>
+<section class="design_description">
+<%= x.description %>
+</section>
+<% end %>

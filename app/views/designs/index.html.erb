@@ -1,7 +1,7 @@
 <h1>
   List of Designs
 </h1>
-<% @designs.each do |design| %>
+<% @designs.reverse.each do |design| %>
 
   <li><%= link_to design.design_name, design_path(design) %><br>
   Description: <%= design.description %></li>
