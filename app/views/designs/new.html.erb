@@ -9,7 +9,8 @@
     </div>
   <%- end -%>
 
-<h1>Submit a Design</h1>
+<h1 class = "submission">Submit a Design</h1>
+<div class = "textboxes">
 <%= form_for @design do |f| %>
 
   <%= f.label :design_name %>
@@ -19,5 +20,5 @@
   <%= f.text_field :description %>
 
   <%= f.submit "Submit Design!" %>
-
+</div>
 <% end %>

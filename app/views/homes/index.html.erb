@@ -1,10 +1,13 @@
 <%= link_to "View all designs", designs_path %><br>
 
 <% if current_user != nil %>
-Name: <%= current_user.first_name %> <%= current_user.last_name %><br>
+  Name: <%= current_user.first_name %> <%= current_user.last_name %><br>
 
-Email: <%= current_user.email%><br>
-User Id: <%= current_user.id %><br>
-Profile Picture: <%= current_user.profile_photo %>
+  Email: <%= current_user.email%><br>
+  User Id: <%= current_user.id %><br>
+  <% if current_user.profile_photo == nil %>
+    <% current_user.profile_photo = "app/assets/images/unnamed.png" %>
+  <%end%>
+  Profile Picture: <%= current_user.profile_photo %>
 
 <%end%>

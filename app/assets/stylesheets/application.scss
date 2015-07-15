@@ -21,6 +21,8 @@
   background-repeat: no-repeat;
   background-position: center top;
   background-position: 0px 45px;
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
  }
 
 .container {
@@ -57,6 +59,20 @@
 
 .top-bar {
   background-color: #0683F3;
+  a {  font-family: 'Pacifico', cursive;
+       font-size: 1.35rem;
+  }
+}
+
+.header {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.65rem;
+  padding-left: .8rem;
+
+}
+
+.submission {
+  text-align: center;
 }
 
 .top-bar img {
@@ -90,6 +106,8 @@
 
 .top-bar-section li a:not(.button) {
     background: #0683F3 !important;
+    font-family: 'Merriweather', serif;
+    font-size: .85rem;
 }
 .top-bar-section li:not(.button) {
     background: #0683F3 !important;
@@ -116,6 +134,10 @@
 
 .bathroom-list tr {
   background: rgba(0, 0, 0, 0);
+}
+
+.textboxes {
+  
 }
 
 .title {
@@ -190,11 +212,11 @@ h1 a {
 }
 
 h1 {
-  color: black;
+  font-family: 'Pacifico', cursive;
 }
 
 h2 {
-  color: #black;
+  color: black;
 }
 
 
