@@ -1,12 +1,12 @@
 <h1 class = "header">
-  Designs
-</h1>
-<% @designs.reverse.each do |design| %>
-
-  <li><%= link_to design.design_name, design_path(design) %><br>
-  Description: <%= design.description %></li>
-  Created by: <%= design.user.email %><br>
-  User ID:<%= design.user_id %><br><br>
-<%end%>
-
+  <%= link_to "Designs", designs_path %>
 <%= link_to "Submit a Design", new_design_path %>
+</h1>
+<div class="small-12 row">
+  <% @designs.reverse.each do |design| %>
+    <div class="small-4 columns">
+      <section class="design-display">
+          <%= link_to image_tag(design.design_image), design_path(design.id) %>
+      </section>
+    </div>
+  <%end%>

@@ -16,7 +16,6 @@
 
  */
  body {
-  background-image: image_url("Landing_Page.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
@@ -25,37 +24,6 @@
   font-size: 14px;
  }
 
-.container {
-  padding: 10px;
-  background:rgba(255,255,255,0.5);
-}
-
-#vote-div {
-  display: inline-block;
-  margin-top: 2px;
-}
-
-.review-container {
-  padding: 15px;
-  display: inline-block;
-  vertical-align: -webkit-baseline-middle;
-}
-
-.container-total-review {
-  background:rgba(255,255,255,0.8);
-}
-
-.review-container p {
-  margin-bottom: 10px;
-}
-
-.footer {
-  background-color: #000;
-  height: 150px;
-  position: relative;
-  width: 100%;
-  top: calc(100% - 150px);
-}
 
 .top-bar {
   background-color: #0683F3;
@@ -68,6 +36,7 @@
   font-family: 'Pacifico', cursive;
   font-size: 1.65rem;
   padding-left: .8rem;
+  color: black;
 
 }
 
@@ -89,12 +58,45 @@
 
 .profile-photo img {
   width: 3em;
-  max-height: 3em;
+  height: 3em;
   float: right;
   margin-top: 2px;
   margin-right: 0px;
   background: inherit;
+  border-radius: 100%;
 }
+
+.design-display img{
+  width: 500px;
+  height: auto;
+  display: inline-flex;
+  margin-bottom: 20px;
+
+/*   border:1px solid black; */
+}
+
+.design-display img{
+  width: 500px;
+  height: auto;
+  display: inline-flex;
+  margin-bottom: 20px;
+  transition: all .15s ease-in-out;
+
+/*   border:1px solid black; */
+}
+
+.design-display :hover{
+  transform: scale(1.1);
+  z-index: +1;
+}
+
+#navlist li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+
 
 .profile-photo li {
   background: #000000;
@@ -102,6 +104,7 @@
 
 .top-bar {
   background: #0683F3;
+  /* height: 50px; */
 }
 
 .top-bar-section li a:not(.button) {
@@ -117,27 +120,14 @@
     background: #7AC0FF !important;
 }
 
-.user-email {
-  float: left;
-  color: white;
-  font-size: 13pt;
-  margin-right: 0px;
-}
 
 .top-bar-section .right {
   background-color: #0683F3;
 }
 
-.bathroom-list {
-  background: rgba(0, 0, 0, .2);
-}
-
-.bathroom-list tr {
-  background: rgba(0, 0, 0, 0);
-}
 
 .textboxes {
-  
+
 }
 
 .title {
@@ -145,6 +135,13 @@
   color: black;
   margin-bottom: 15px;
   margin-left: 10px;
+}
+
+.showtitle {
+  text-align: left;
+  color: black;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .design_name {
@@ -162,53 +159,15 @@
   margin-bottom: 10px;
 }
 
-.upvote img {
-  height: 30px;
-  width: auto;
-}
-
-.downvote img {
-  height: 25px;
-  width: auto;
-}
-
-.small-4 {
-text-align: center;
-}
-
-#welcome {
-  background:rgba(255,255,255,0.5);
-  margin-top: 150px;
-  padding: 20px;
-  text-align: center;
-}
-
-
-.searchbra {
-  margin-left: 0;
-}
-.button {
-  display: block;
-  padding: 10px;
-  margin: 0 auto;
-  color: #000000;
-}
-
-.button:hover {
-  background-color: #6FDF52;
-  color: #000000;
-}
 
 h5 {
   text-align: center;
 }
 
-#created {
-  color: white;
-}
 
 h1 a {
   text-align: center;
+  color: black;
 }
 
 h1 {
@@ -221,6 +180,6 @@ h2 {
 
 
 h1 a:hover {
-  color: #6FDF52;
+  color: #0683F3;
   text-align: center;
 }

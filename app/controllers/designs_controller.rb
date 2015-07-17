@@ -9,6 +9,9 @@ class DesignsController < ApplicationController
 
   def show
     @design = Design.find(params[:id])
+    @reviews = @design.reviews.order(created_at: :desc).page(params[:page])
+    @review = Review.new
+    @vote_total = Vote.group(:review_id).sum(:vote)
   end
 
   def create
@@ -50,9 +53,9 @@ class DesignsController < ApplicationController
   #   redirect_to designs_path
   # end
 
-  # protected
-  #
+  protected
+
   def design_params
-    params.require(:design).permit(:design_name, :description, :user_id)
+    params.require(:design).permit(:design_name, :description, :user_id, :design_image)
   end
 end

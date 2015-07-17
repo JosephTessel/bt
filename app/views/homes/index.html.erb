@@ -8,6 +8,6 @@
   <% if current_user.profile_photo == nil %>
     <% current_user.profile_photo = "app/assets/images/unnamed.png" %>
   <%end%>
-  Profile Picture: <%= current_user.profile_photo %>
+  Profile Picture: <%= image_tag(current_user.profile_photo, size: "128x80") %>
 
 <%end%>

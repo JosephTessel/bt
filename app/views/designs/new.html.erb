@@ -13,6 +13,10 @@
 <div class = "textboxes">
 <%= form_for @design do |f| %>
 
+  <%= f.label :design_image, "Select Your Image" %><br/>
+  <%= f.file_field :design_image %>
+
+
   <%= f.label :design_name %>
   <%= f.text_field :design_name %>
 

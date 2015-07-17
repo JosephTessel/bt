@@ -1,14 +1,19 @@
+<%= image_tag(@user.profile_photo, size: "192x120") %>
 <section class="title">
   <h1>
-<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%>'s Profile:
-</h1>
+    <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%>'<%if @user.last_name[-1] != 's'%>s
+    <% end %> Profile:
+  </h1>
 </section>
 
 <% Design.where(user_id: @user.id).reverse.each do |x|%>
-<section class="design_name">
-<%= x.design_name %>
+<section class="design-image">
+  <%= image_tag(x.design_image) %>
 </section>
-<section class="design_description">
-<%= x.description %>
-</section>
+  <section class="design_name">
+    <%= x.design_name %>
+  </section>
+  <section class="design_description">
+    <%= x.description %>
+  </section>
 <% end %>
