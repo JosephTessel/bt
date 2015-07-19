@@ -6,7 +6,7 @@
   Email: <%= current_user.email%><br>
   User Id: <%= current_user.id %><br>
   <% if current_user.profile_photo == nil %>
-    <% current_user.profile_photo = "app/assets/images/unnamed.png" %>
+    <% current_user.profile_photo = image_tag("unnamed.png") %>
   <%end%>
   Profile Picture: <%= image_tag(current_user.profile_photo, size: "128x80") %>
 

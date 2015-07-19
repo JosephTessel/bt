@@ -1,19 +1,31 @@
-<%= image_tag(@user.profile_photo, size: "192x120") %>
 <section class="title">
-  <h1>
+  <h1 class = "portfolio">
+    <%= image_tag(@user.profile_photo) %>
     <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize%>'<%if @user.last_name[-1] != 's'%>s
-    <% end %> Profile:
+    <% end %> Portfolio:
   </h1>
 </section>
 
-<% Design.where(user_id: @user.id).reverse.each do |x|%>
-<section class="design-image">
-  <%= image_tag(x.design_image) %>
-</section>
-  <section class="design_name">
-    <%= x.design_name %>
-  </section>
-  <section class="design_description">
-    <%= x.description %>
-  </section>
-<% end %>
+<div class="small-12 row">
+  <% Design.where(user_id: @user.id).reverse.each do |design|%>
+    <div class="small-4 columns">
+      <section class="design-display">
+          <%= link_to image_tag(design.design_image), design_path(design.id) %>
+      </section>
+    </div>
+  <%end%>
+
+
+  <!-- # <% Design.where(user_id: @user.id).reverse.each do |x|%>
+  # <div "small-4 columns">
+  # <section class="design-display">
+  #   <%= image_tag(x.design_image) %>
+  # </section>
+  #   <!-- <section class="design_name">
+  #     <%= x.design_name %>
+  #   </section>
+  #   <section class="design_description">
+  #     <%= x.description %>
+  #   </section> -->
+  <!-- #   <% end %> -->
+  <!-- # </div> --> 

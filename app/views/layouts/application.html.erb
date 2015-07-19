@@ -18,11 +18,11 @@
     <section class="top-bar-section">
         <%- if current_user -%>
       <section class ="profile-photo">
-        <%= link_to image_tag(current_user.profile_photo), user_path(current_user.id), method: :get %>
+        <%= link_to image_tag(current_user.profile_photo), user_path(current_user.id) %>
       </section>
       <ul class="right">
         <section class="user-email"><li>
-          <%= link_to current_user.first_name + " " + current_user.last_name, user_path(current_user.id), method: :get %>
+          <%= link_to current_user.first_name.capitalize + " " + current_user.last_name.capitalize, user_path(current_user.id), method: :get %>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           </section></li>
         <%- else -%>
@@ -34,15 +34,20 @@
     </section>
   </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
+<!--   <%- flash.each do |key, value| -%>
+  <div class="flash flash-<%= key %>">
+    <%= value %>
+  </div>
+<%- end -%> -->
 
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+
+
+<!--     <nav class="footer">
+   Footer
+</nav> -->
 </body>
 </html>

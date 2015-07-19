@@ -15,28 +15,36 @@
  *= require foundation_and_overrides
 
  */
+
+ $maincolor:#0683F3;
+ $secondarycolor:#000;
+ $thirdcolor:white;
+ $cursivefont:'Pacifico', cursive;
+ $smallfont:'Merriweather', serif;
+
+
  body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
   background-position: 0px 45px;
-  font-family: 'Merriweather', serif;
+  font-family: $smallfont;
   font-size: 14px;
  }
 
 
 .top-bar {
-  background-color: #0683F3;
-  a {  font-family: 'Pacifico', cursive;
+  background-color: $maincolor;
+  a {  font-family: $cursivefont;
        font-size: 1.35rem;
   }
 }
 
 .header {
-  font-family: 'Pacifico', cursive;
+  font-family: $cursivefont;
   font-size: 1.65rem;
   padding-left: .8rem;
-  color: black;
+  color: $secondarycolor;
 
 }
 
@@ -48,7 +56,7 @@
   height: 100%;
   float: left;
   margin-right: 10px;
-  background-color: #0683F3;
+  background-color: $maincolor;
 }
 
 .top-bar h1 {
@@ -72,7 +80,7 @@
   display: inline-flex;
   margin-bottom: 20px;
 
-/*   border:1px solid black; */
+/*   border:1px solid $secondarycolor; */
 }
 
 .design-display img{
@@ -82,12 +90,12 @@
   margin-bottom: 20px;
   transition: all .15s ease-in-out;
 
-/*   border:1px solid black; */
+/*   border:1px solid $secondarycolor; */
 }
 
 .design-display :hover{
   transform: scale(1.1);
-  z-index: +1;
+
 }
 
 #navlist li
@@ -103,26 +111,38 @@ padding-right: 20px;
 }
 
 .top-bar {
-  background: #0683F3;
+  background: $maincolor;
   /* height: 50px; */
 }
 
 .top-bar-section li a:not(.button) {
-    background: #0683F3 !important;
-    font-family: 'Merriweather', serif;
+    background: $maincolor !important;
+    font-family: $smallfont;
     font-size: .85rem;
+    transition: all .3s ease-out;
+
 }
 .top-bar-section li:not(.button) {
-    background: #0683F3 !important;
+    background: $maincolor !important;
 }
 
 .top-bar-section li a:not(.button):hover {
     background: #7AC0FF !important;
+    transition: all .3s ease-in-out;
 }
 
+.button {
+  display: block;
+  background-color: $maincolor;
+  color: #FFFFFF;
+}
+
+.button:hover {
+  background-color: #7AC0FF;
+}
 
 .top-bar-section .right {
-  background-color: #0683F3;
+  background-color: $maincolor;
 }
 
 
@@ -132,28 +152,28 @@ padding-right: 20px;
 
 .title {
   text-align: left;
-  color: black;
+  color: $secondarycolor;
   margin-bottom: 15px;
   margin-left: 10px;
 }
 
 .showtitle {
   text-align: left;
-  color: black;
+  color: $secondarycolor;
   margin-bottom: 15px;
   text-align: center;
 }
 
 .design_name {
   text-align: left;
-  color: black;
+  color: $secondarycolor;
   font-size: 14pt;
   margin-left: 12px;
 }
 
 .design_description {
   text-align: left;
-  color: black;
+  color: $secondarycolor;
   font-size: 12pt;
   margin-left: 14px;
   margin-bottom: 10px;
@@ -167,19 +187,75 @@ h5 {
 
 h1 a {
   text-align: center;
-  color: black;
+  color: $secondarycolor;
 }
 
 h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: $cursivefont;
 }
 
 h2 {
-  color: black;
+  color: $secondarycolor;
 }
 
 
 h1 a:hover {
-  color: #0683F3;
+  color: $maincolor;
   text-align: center;
+}
+
+.juxtapose {
+  a {
+  color: $maincolor;
+  display: inline;
+  }
+  a:hover {
+    color: $thirdcolor;
+  text-shadow:
+   -1px -1px 0 $maincolor,
+    1px -1px 0 $maincolor,
+    -1px 1px 0 $maincolor,
+     1px 1px 0 $maincolor;
+      }
+}
+
+.review img {
+  width: 3em;
+  height: 3em;
+  margin-top: 2px;
+  margin-right: 0px;
+  background: inherit;
+  border-radius: 100%;
+}
+
+.portfolio img {
+  width: 3em;
+  height: 3em;
+  margin-top: 2px;
+  margin-right: 0px;
+  background: inherit;
+  border-radius: 100%;
+}
+
+.createdby {
+padding-right: 50px;
+}
+
+
+.createdby img {
+  width: 3em;
+  height: 3em;
+  margin-top: 2px;
+  margin-right: 0px;
+  background: inherit;
+  border-radius: 100%;
+
+}
+.footer {
+  background-color: $secondarycolor;
+  color: $thirdcolor;
+  height: 10em;
+  position: relative;
+  width: 100%;
+  margin-top: 10em
 }

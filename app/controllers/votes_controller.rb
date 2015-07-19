@@ -1,6 +1,5 @@
 class VotesController < ApplicationController
   before_action :pre_vote
-
   def upvote
     if @value.vote == 1
       @value.vote -= 1
