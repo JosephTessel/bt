@@ -18,7 +18,7 @@ So that I can list it on the site" do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
 
-    click_button 'Log in'
+    click_button 'Sign in'
     click_link 'View all designs'
     click_link 'Submit a Design'
 
@@ -41,7 +41,7 @@ So that I can list it on the site" do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
 
-    click_button 'Log in'
+    click_button 'Sign in'
     click_link 'View all designs'
     click_link 'Submit a Design'
 

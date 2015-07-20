@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'designs#index'
   devise_for :users
 
-  resources :designs, only: [:index, :show, :new, :create, :edit] do
-    resources :reviews, only: [:index, :new, :create, :destroy]
+  resources :designs do
+    resources :reviews, only: [:new, :create, :destroy]
   end
   #add ability to delete
   resources :users, only: [:show]
