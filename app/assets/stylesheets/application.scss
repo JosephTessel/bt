@@ -188,6 +188,7 @@ h5 {
 h1 a {
   text-align: center;
   color: $secondarycolor;
+  transition: all .3s ease-in-out;
 }
 
 h1 {
@@ -202,6 +203,7 @@ h2 {
 h1 a:hover {
   color: $maincolor;
   text-align: center;
+    transition: all .3s ease-in-out;
 }
 
 .juxtapose {
@@ -211,12 +213,13 @@ h1 a:hover {
   }
   a:hover {
     color: $thirdcolor;
-  text-shadow:
-   -1px -1px 0 $maincolor,
-    1px -1px 0 $maincolor,
-    -1px 1px 0 $maincolor,
-     1px 1px 0 $maincolor;
-      }
+      transition: all .3s ease-in-out;
+      text-shadow:
+       -1px -1px 0 $maincolor,
+        1px -1px 0 $maincolor,
+        -1px 1px 0 $maincolor,
+         1px 1px 0 $maincolor;
+          }
 }
 
 .review img {
@@ -258,4 +261,8 @@ padding-right: 50px;
   position: relative;
   width: 100%;
   margin-top: 10em
+}
+
+.delete_edit {
+  text-align: center;
 }

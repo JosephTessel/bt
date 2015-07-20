@@ -22,7 +22,7 @@
       </section>
       <ul class="right">
         <section class="user-email"><li>
-          <%= link_to current_user.first_name.capitalize + " " + current_user.last_name.capitalize, user_path(current_user.id), method: :get %>
+          <%= link_to current_user.first_name.capitalize + " " + current_user.last_name.capitalize, edit_user_registration_path%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           </section></li>
         <%- else -%>

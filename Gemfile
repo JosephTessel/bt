@@ -55,5 +55,6 @@ gem 'foundation-rails'
 gem 'carrierwave'
 gem 'fog'
 gem 'rails_12factor', group: :production
+gem 'coveralls', require: false
 
 ruby "2.2.0"

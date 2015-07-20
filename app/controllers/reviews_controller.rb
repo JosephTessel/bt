@@ -14,10 +14,10 @@ class ReviewsController < ApplicationController
 
     if @review.save
       # ReviewNotifier.new_review(@review).deliver_later
-      # flash[:notice] = "Review saved"
+      flash[:notice] = "Review saved"
       redirect_to design_path(params[:design_id])
     else
-      # flash.now[:alert] = @review.errors.full_messages.join(". ")
+      flash.now[:alert] = @review.errors.full_messages.join(". ")
       render "designs/show"
     end
   end
@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   def destroy
     @design = Design.find(params[:design_id])
     @deletereview = Review.find(params[:id]).destroy
-    # flash[:notice] = "Review Deleted"
+    flash[:notice] = "Review Deleted"
     redirect_to design_path(@design)
   end
 
