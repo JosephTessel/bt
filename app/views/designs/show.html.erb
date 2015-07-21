@@ -16,7 +16,7 @@
       </span>
     </div>
   <% end %>
-      <h5 class = "createdby text-right">By: <%= link_to image_tag(@design.user.profile_photo), user_path(@design.user.id) %>  <%= link_to @design.user.first_name.capitalize, user_path(@design.user.id)%> <%= link_to @design.user.last_name.capitalize, user_path(@design.user.id)%></h5>
+      <h5 class = "createdby text-right">By: <%= link_to image_tag(@design.user.profile_photo) +" "+ @design.user.first_name.capitalize + " " + @design.user.last_name.capitalize, user_path(@design.user.id)%></h5>
 <h2 class = "showtitle">Reviews</h2>
 </div>
 </div>
@@ -35,6 +35,8 @@
 </div>
 <% end %>
 
+
+
 <%= paginate @reviews %>
 <div class="enter-review">
   <div class="container">
@@ -49,6 +51,4 @@
   <% end %>
   </div>
 </div>
-
-
 </div>
