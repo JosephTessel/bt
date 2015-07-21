@@ -19,6 +19,8 @@
  $maincolor:#0683F3;
  $secondarycolor:#000;
  $thirdcolor:white;
+ $buttonhovercolor: #7AC0FF;
+ $textcolor:#FFFFFF;
  $cursivefont:'Pacifico', cursive;
  $smallfont:'Merriweather', serif;
 
@@ -127,18 +129,18 @@ padding-right: 20px;
 }
 
 .top-bar-section li a:not(.button):hover {
-    background: #7AC0FF !important;
+    background: $buttonhovercolor !important;
     transition: all .3s ease-in-out;
 }
 
 .button {
   display: block;
   background-color: $maincolor;
-  color: #FFFFFF;
+  color: $textcolor;
 }
 
 .button:hover {
-  background-color: #7AC0FF;
+  background-color: $buttonhovercolor;
 }
 
 .top-bar-section .right {
@@ -199,6 +201,10 @@ h2 {
   color: $secondarycolor;
 }
 
+h3 {
+  font-family: $smallfont;
+}
+
 
 h1 a:hover {
   color: $maincolor;
@@ -219,17 +225,20 @@ h1 a:hover {
         1px -1px 0 $maincolor,
         -1px 1px 0 $maincolor,
          1px 1px 0 $maincolor;
-          }
+  }
 }
 
-.review img {
-  width: 3em;
-  height: 3em;
-  margin-top: 2px;
-  margin-right: 0px;
-  background: inherit;
-  border-radius: 100%;
-}
+.review {
+  word-wrap: break-word;
+  img {
+    width: 3em;
+    height: 3em;
+    margin-top: 2px;
+    margin-right: 0px;
+    background: inherit;
+    border-radius: 100%;
+  }
+ }
 
 .portfolio img {
   width: 3em;
@@ -254,15 +263,75 @@ padding-right: 50px;
   border-radius: 100%;
 
 }
-.footer {
-  background-color: $secondarycolor;
-  color: $thirdcolor;
-  height: 10em;
-  position: relative;
-  width: 100%;
-  margin-top: 10em
-}
 
 .delete_edit {
   text-align: center;
+}
+
+.full-width {
+  max-width: 1400px;
+}
+
+.footer {
+  background-color: $maincolor;
+
+  h4 {
+    color: $thirdcolor;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+    margin-bottom: 10px;
+  }
+  p {
+    font-weight: 300;
+    font-size: .8rem;
+  }
+  span {
+    font-size: 50px;
+    color: $thirdcolor;
+    margin-top: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+}
+
+@media only screen and (min-width: 40.063em) {
+.footer {
+  .columns:nth-child(n+2) {
+     border-left: 1px solid scale-color(#fff, $lightness: -30%);
+  }
+ }
+}
+
+.footer-links {
+  list-style-type: none;
+  a {
+    color: $thirdcolor;
+    font-weight: 300;
+    font-size: .8rem;
+  }
+  li {
+    margin-top: .5rem;
+  }
+}
+
+
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+	margin-bottom: -125px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+	min-height: 150px;
+}
+.site-footer {
+  background: $maincolor;
 }
