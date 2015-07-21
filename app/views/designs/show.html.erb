@@ -7,7 +7,12 @@
 <%= @design.description%><br>
 </h5>
 <h6 class = "showtitle"><%= image_tag(@design.design_image) %></h6>
-
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 <% if @design.user == current_user %>
 <div class = "delete_edit">
       <span class="button-group text-center">
