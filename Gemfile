@@ -58,5 +58,6 @@ gem 'rails_12factor', group: :production
 gem 'coveralls', require: false
 gem 'omniauth-facebook'
 gem "recaptcha", :require => "recaptcha/rails"
+gem "mini_magick"
 
 ruby "2.2.0"
