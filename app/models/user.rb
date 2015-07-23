@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :designs
-  has_many :votes
+  has_many :designs, dependent: :destroy
+  has_many :votes, dependent: :destroy
   validates :email, presence: true
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
