@@ -1,54 +1,79 @@
-<h1 class = "header">
-  <%= link_to "Designs", designs_path %> <%= link_to "Submit a Design", new_design_path %> <br>
-</h1><h1 class = "showtitle">
-<%= @design.design_name %>
-</h1>
-<h5 class = "showtitle">
-<%= @design.description%><br>
-</h5>
-<h6 class = "showtitle"><%= image_tag(@design.design_image) %></h6>
+<% provide(:title, "Designs | View") %>
+    <h1 class="header">
+      <%= link_to "Designs", designs_path %> <%= link_to "Submit a Design", new_design_path %> <br>
+    </h1>
 
-<% if @design.user == current_user %>
-<div class = "delete_edit">
-      <span class="button-group text-center">
-        <li><%= button_to "Delete this Design", design_path(@design), method: :delete, class: 'button' %></li>
-        <li><%= button_to "Edit this Design", edit_design_path(@design), class: 'button', method: :get %></li>
-      </span>
+    <h1 class = "showtitle">
+      <%= @design.design_name %>
+    </h1>
+
+    <h5 class = "showtitle">
+      <%= @design.description%><br>
+    </h5>
+
+    <h6 class = "showtitle large-12-centered columns">
+      <%= image_tag(@design.design_image) %>
+    </h6>
+
+    <% if @design.user == current_user %>
+      <div class = "delete_edit">
+        <span class="button-group text-center">
+          <li><%= button_to "Delete this Design", design_path(@design), method: :delete, class: 'button' %></li>
+          <li><%= button_to "Edit this Design", edit_design_path(@design), class: 'button', method: :get %></li>
+        </span>
+      </div>
+    <% end %>
+  <div class ="createdby small-12 columns">
+    <div><%="Rating: "+ @design.rating.to_s%>
     </div>
-  <% end %>
-      <h5 class = "createdby text-right">By: <%= link_to image_tag(@design.user.profile_photo) +" "+ @design.user.first_name.capitalize + " " + @design.user.last_name.capitalize, user_path(@design.user.id)%></h5>
-<h2 class = "showtitle">Reviews</h2>
-</div>
-</div>
-<div class="row">
-  <% @reviews.reverse.each do |review| %>
-  <div class="container-total-review">
-
-    <div class="review-container">
-      <p> <section class ="review">
-        <%= link_to image_tag(review.user.profile_photo), user_path(review.user.id) %>
-       <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>: <%= review.body %></p></section>
-      <% if review.user == current_user %>
-        <%= button_to "Delete this Review", design_review_path(@design, review.id), method: :delete, class: "button" %>
-      <% end %>
+      <div>By:
+        <% if @design.user.profile_photo.file == nil %>
+          <%= link_to image_tag("default_image.png") + " " + @design.user.first_name.capitalize + " " +
+          @design.user.last_name.capitalize, user_path(@design.user.id)%>
+        <% else %>
+      <%= link_to image_tag(@design.user.profile_photo) + " " + @design.user.first_name.capitalize + " " +
+      @design.user.last_name.capitalize, user_path(@design.user.id)%>
+        <% end%>
     </div>
-</div>
-<% end %>
-
-
-
-<%= paginate @reviews %>
-<div class="enter-review">
-  <div class="container">
-
-  <%= form_for [@design, @review] do |f| %>
-
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-
-
-    <%= f.submit "Submit" %>
-  <% end %>
   </div>
-</div>
+<div class="row">
+  <div class="small-12 columns">
+    <h2 class = "showtitle">
+      Reviews
+    </h2>
+  </div>
+
+  <% @reviews.reverse.each do |review| %>
+    <div class="row">
+      <div class="container-total-review">
+        <div class="review-container">
+
+          <div class="small-11 columns review">
+            <% if review.user.profile_photo.file == nil %>
+              <%= link_to image_tag("default_image.png"), user_path(review.user.id) %> <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>: <%= review.body %><br><br>
+            <% else %>
+              <%= link_to image_tag(review.user.profile_photo), user_path(review.user.id) %> <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>: <%= review.body %><br><br>
+            <% end%>
+            <% if review.user == current_user %>
+              <%= button_to "Delete this Review", design_review_path(@design, review.id), method: :delete, class: "button" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @reviews %>
+  <div class="enter-review">
+    <div class="container">
+
+    <%= form_for [@design, @review] do |f| %>
+
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+
+
+      <%= f.submit "Submit" %>
+    <% end %>
+    </div>
+  </div>
 </div>

@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
     @review.design = @design
     @review.user = current_user
     @reviews = @design.reviews.order(created_at: :desc).page(params[:page])
-    @vote_total = Vote.group(:review_id).sum(:vote)
 
     if @review.save
       # ReviewNotifier.new_review(@review).deliver_later

@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'pry'
+
 # Acceptance Criteria
 # [x] I can sign in, and submit a design to the website.
 # [x] I can optionally specify a description of the design.
@@ -13,14 +14,14 @@ So that I can list it on the site" do
   scenario 'Designer fills-in design form correctly and submits' do
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
+    visit user_session_path
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-
     click_button 'Sign in'
-    click_link 'View all designs'
-    click_link 'Submit a Design'
+
+    visit new_design_path
+    
 
     fill_in 'Design name', with: "Toaster Boy"
     fill_in 'Description', with: "It's an average boy... IN TOASTER FORM!"
