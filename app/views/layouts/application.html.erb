@@ -20,7 +20,7 @@
     </ul>
 
     <section class="top-bar-section">
-        <%- if current_user -%>
+        <% if current_user %>
       <section class ="profile-photo">
         <% if current_user.profile_photo.file == nil %>
           <%= link_to image_tag("default_image.png"), user_path(current_user.id) %>
@@ -30,25 +30,25 @@
 <body>
       </section>
       <ul class="right">
-        <section class="user-email"><li>
-          <%= link_to current_user.first_name.capitalize + " " + current_user.last_name.capitalize, edit_user_registration_path%>
+
+          <li><%= link_to current_user.first_name.capitalize + " " + current_user.last_name.capitalize,  edit_user_registration_path, class: "new-line-height" %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          </section></li>
-        <%- else -%>
+
+        <% else %>
         <ul class="right">
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
+        <% end %>
       </ul>
     </div>
     </section>
   </nav>
 
-<%- flash.each do |key, value| -%>
+<% flash.each do |key, value| %>
   <div class="flash flash-<%= key %>">
     <%= value %>
   </div>
-<%- end -%>
+<% end %>
 <div class ="page-wrap">
   <%= yield %>
 </div>

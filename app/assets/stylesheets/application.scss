@@ -42,7 +42,6 @@
 .top-bar {
   background-color: $maincolor;
   a {  font-family: $cursivefont;
-       font-size: 1.35rem;
   }
 }
 
@@ -71,14 +70,20 @@
 }
 
 .profile-photo img {
-  width: 3em;
-  height: 3em;
+  width: 2.8rem;
+  height: 2.8rem;
   float: right;
-  margin-top: 2px;
+  margin-top: 0px;
   margin-right: 0px;
   background: inherit;
   border-radius: 100%;
+
+
 }
+
+.profile-photo :hover{
+
+  }
 
 .design-display img{
   width: 500px;
@@ -87,7 +92,6 @@
   margin-bottom: 20px;
   transition: all .15s ease-in-out;
 
-/*   border:1px solid $secondarycolor; */
 }
 
 .design-display :hover{
@@ -95,21 +99,24 @@
 
 }
 
-#navlist li
-{
-display: inline;
-list-style-type: none;
-padding-right: 20px;
-}
+#navlist li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
 
+}
 
 .profile-photo li {
   background: #000000;
+
 }
 
 .top-bar {
   background: $maincolor;
-  /* height: 50px; */
+  height: 2rem;
+  a {
+    line-height: 2.06rem;
+  }
 }
 
 .top-bar-section li a:not(.button) {
@@ -117,10 +124,8 @@ padding-right: 20px;
     font-family: $smallfont;
     font-size: .85rem;
     transition: all .3s ease-out;
+    line-height: 2.06rem !important;
 
-}
-.top-bar-section li:not(.button) {
-    background: $maincolor !important;
 }
 
 .top-bar-section li a:not(.button):hover {
