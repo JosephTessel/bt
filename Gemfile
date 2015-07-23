@@ -56,5 +56,8 @@ gem 'carrierwave'
 gem 'fog'
 gem 'rails_12factor', group: :production
 gem 'coveralls', require: false
+gem 'omniauth-facebook'
+gem 'recaptcha', '~> 0.4.0'
+gem "recaptcha", :require => "recaptcha/rails"
 
 ruby "2.2.0"

@@ -1,10 +1,11 @@
+<% provide(:title, "Designs") %>
 <h1 class = "header">
-  <%= link_to "Designs", designs_path %> <%= link_to "Submit a Design", new_design_path %> <br>
+  <%= link_to "Designs", designs_path %> <%= link_to "Submit a Design", new_design_path %> <br><br>
 <div class="juxtapose">  </div>
 </h1>
 <div class="small-12 row">
   <% @designs.reverse.each do |design| %>
-    <div class="small-12 medium-6 large-4 columns">
+    <div class="small-12 medium-4 large-4 columns">
       <section class="design-display">
           <%= link_to image_tag(design.design_image), design_path(design.id) %>
       </section>
