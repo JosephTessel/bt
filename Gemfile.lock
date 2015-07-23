@@ -386,7 +386,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.2)
   rails_12factor
-  recaptcha (~> 0.4.0)
+  recaptcha
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
