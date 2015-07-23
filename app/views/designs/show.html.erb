@@ -11,9 +11,25 @@
       <%= @design.description%><br>
     </h5>
 
-    <h6 class = "showtitle large-12-centered columns">
-      <%= image_tag(@design.design_image) %>
-    </h6>
+    <div class="row">
+      <div class="showtitle image">
+        <%= image_tag(@design.design_image) %>
+        <div class ="createdby">
+          <div class="left">
+            <%="Rating: "+ @design.rating.to_s%>
+          </div>
+            <div class="right">By:
+              <% if @design.user.profile_photo.file == nil %>
+                <%= link_to image_tag("default_image.png") + " " + @design.user.first_name.capitalize + " " +
+                @design.user.last_name.capitalize, user_path(@design.user.id)%>
+              <% else %>
+            <%= link_to image_tag(@design.user.profile_photo) + " " + @design.user.first_name.capitalize + " " +
+            @design.user.last_name.capitalize, user_path(@design.user.id)%>
+              <% end%>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <% if @design.user == current_user %>
       <div class = "delete_edit">
@@ -23,19 +39,7 @@
         </span>
       </div>
     <% end %>
-  <div class ="createdby small-12 columns">
-    <div><%="Rating: "+ @design.rating.to_s%>
-    </div>
-      <div>By:
-        <% if @design.user.profile_photo.file == nil %>
-          <%= link_to image_tag("default_image.png") + " " + @design.user.first_name.capitalize + " " +
-          @design.user.last_name.capitalize, user_path(@design.user.id)%>
-        <% else %>
-      <%= link_to image_tag(@design.user.profile_photo) + " " + @design.user.first_name.capitalize + " " +
-      @design.user.last_name.capitalize, user_path(@design.user.id)%>
-        <% end%>
-    </div>
-  </div>
+
 <div class="row">
   <div class="small-12 columns">
     <h2 class = "showtitle">
@@ -50,10 +54,13 @@
 
           <div class="small-11 columns review">
             <% if review.user.profile_photo.file == nil %>
-              <%= link_to image_tag("default_image.png"), user_path(review.user.id) %> <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>: <%= review.body %><br><br>
+              <%= link_to image_tag("default_image.png"), user_path(review.user.id), class: "left" %>
             <% else %>
-              <%= link_to image_tag(review.user.profile_photo), user_path(review.user.id) %> <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>: <%= review.body %><br><br>
+              <%= link_to image_tag(review.user.profile_photo), user_path(review.user.id), class: "left" %>
             <% end%>
+            <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>:
+            <%= review.body %><br><br>
+
             <% if review.user == current_user %>
               <%= button_to "Delete this Review", design_review_path(@design, review.id), method: :delete, class: "button" %>
             <% end %>

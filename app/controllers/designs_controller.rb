@@ -18,7 +18,6 @@ class DesignsController < ApplicationController
     @design = Design.new(design_params)
     @design.user = current_user
     if verify_recaptcha
-      binding.pry
       if @design.save
        flash[:notice] = "Design Submitted!"
        redirect_to designs_path
