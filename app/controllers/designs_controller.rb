@@ -1,3 +1,4 @@
+require 'pry'
 class DesignsController < ApplicationController
   def index
     @designs = Design.all
@@ -16,12 +17,17 @@ class DesignsController < ApplicationController
   def create
     @design = Design.new(design_params)
     @design.user = current_user
+    if verify_recaptcha
+      binding.pry
       if @design.save
        flash[:notice] = "Design Submitted!"
        redirect_to designs_path
       else
        render :new
       end
+    else
+     render :new
+    end
   end
 
   def edit
