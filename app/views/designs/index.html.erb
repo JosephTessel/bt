@@ -5,7 +5,7 @@
 </h1>
 <div class="small-12 row">
   <% @designs.reverse.each do |design| %>
-  <div class="small-12 medium-12 large-4 columns end">
+  <div class="small-12 medium-6 large-4 columns end">
       <section class="design-display">
           <%= link_to image_tag(design.design_image), design_path(design.id) %>
       </section>
