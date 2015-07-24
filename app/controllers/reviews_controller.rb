@@ -23,6 +23,11 @@ class ReviewsController < ApplicationController
 
   def destroy
     @design = Design.find(params[:design_id])
+    @review = Review.find(params[:id])
+    unless @review.user != current_user || current_user.role != "admin"
+      redirect_to designs_path
+      flash[:notice] = "You can't destroy other people's reviews!"
+    end
     @deletereview = Review.find(params[:id]).destroy
     flash[:notice] = "Review Deleted"
     redirect_to design_path(@design)

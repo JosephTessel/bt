@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <% if @design.user == current_user %>
+    <% if @design.user == current_user || current_user.role == "admin" %>
       <div class = "delete_edit">
         <span class="button-group text-center">
           <li><%= button_to "Delete this Design", design_path(@design), method: :delete, class: 'button' %></li>
@@ -61,7 +61,7 @@
             <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>:
             <%= review.body %><br><br>
 
-            <% if review.user == current_user %>
+            <% if review.user == current_user || current_user.role == "admin"%>
               <%= button_to "Delete this Review", design_review_path(@design, review.id), method: :delete, class: "button" %>
             <% end %>
           </div>

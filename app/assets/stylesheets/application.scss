@@ -96,9 +96,19 @@
 
 .design-display :hover{
   transform: scale(1.1);
+  opacity: .8;
+  font-family: $smallfont;
 
 }
+/* 
+.design-display:hover .hover-text{
 
+  opacity: .8;
+  color: #000;
+  font-weight: 700;
+  font-family: $smallfont;
+}
+ */
 #navlist li {
   display: inline;
   list-style-type: none;

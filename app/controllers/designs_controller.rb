@@ -30,7 +30,7 @@ class DesignsController < ApplicationController
 
   def edit
     @design = Design.find(params[:id])
-    if @design.user != current_user
+    unless current_user.role == "admin" || @design.user == current_user
       redirect_to designs_path
       flash[:notice] = "You can't edit other people's work!"
     end
@@ -38,7 +38,10 @@ class DesignsController < ApplicationController
 
   def update
     @design = Design.find(params[:id])
-
+    unless @design.user == current_user || current_user.role == "admin"
+      redirect_to designs_path
+      flash[:notice] = "You can't edit other people's work!"
+    end
     if @design.update(design_params)
       flash[:notice] = 'Design Edited'
       redirect_to design_path(@design)
@@ -49,9 +52,15 @@ class DesignsController < ApplicationController
   end
 
   def destroy
-    @design = Design.find(params[:id]).destroy
-    flash[:notice] = "Design Deleted"
-    redirect_to designs_path
+    @design = Design.find(params[:id])
+    if @design.user == current_user || current_user.role == "admin"
+      @design.destroy
+      flash[:notice] = "Design Deleted"
+      redirect_to designs_path
+    else
+      redirect_to designs_path
+      flash[:notice] = "You can't destroy other people's work!"
+    end
   end
 
   protected
