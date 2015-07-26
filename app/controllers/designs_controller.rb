@@ -30,17 +30,27 @@ class DesignsController < ApplicationController
 
   def edit
     @design = Design.find(params[:id])
-    unless current_user.role == "admin" || @design.user == current_user
+    if current_user == nil
       redirect_to designs_path
       flash[:notice] = "You can't edit other people's work!"
+    else
+      unless current_user.role == "admin" || @design.user == current_user
+        redirect_to designs_path
+        flash[:notice] = "You can't edit other people's work!"
+      end
     end
   end
 
   def update
     @design = Design.find(params[:id])
-    unless @design.user == current_user || current_user.role == "admin"
+    if current_user == nil
       redirect_to designs_path
       flash[:notice] = "You can't edit other people's work!"
+    else
+      unless current_user.role == "admin" || @design.user == current_user
+        redirect_to designs_path
+        flash[:notice] = "You can't edit other people's work!"
+      end
     end
     if @design.update(design_params)
       flash[:notice] = 'Design Edited'
@@ -53,13 +63,18 @@ class DesignsController < ApplicationController
 
   def destroy
     @design = Design.find(params[:id])
-    if @design.user == current_user || current_user.role == "admin"
-      @design.destroy
-      flash[:notice] = "Design Deleted"
-      redirect_to designs_path
-    else
+    if current_user == nil
       redirect_to designs_path
       flash[:notice] = "You can't destroy other people's work!"
+    else
+      if @design.user == current_user || current_user.role == "admin"
+        @design.destroy
+        flash[:notice] = "Design Deleted"
+        redirect_to designs_path
+      else
+        redirect_to designs_path
+        flash[:notice] = "You can't destroy other people's work!"
+      end
     end
   end
 

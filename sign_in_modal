@@ -1,0 +1,7 @@
+<li><%= link_to 'Sign In', new_user_session_path, data: { "reveal-id" => "myModal"} %></li>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Sign In</h2>
+  <%= render "/devise/sessions/new" %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
