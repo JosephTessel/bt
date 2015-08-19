@@ -1,7 +1,7 @@
 <% provide(:title, "Designs | View") %>
-    <h1 class="header">
-      <%= link_to "Designs", designs_path %> <%= link_to "Submit a Design", new_design_path %> <br>
-    </h1>
+<h1 class = "header">
+  <%= link_to "Designs", designs_path %><span class = "line"> |</span><%= link_to "Submit a Design", new_design_path %> <br><br>
+</h1>
 
     <h1 class = "showtitle">
       <%= @design.design_name %>
