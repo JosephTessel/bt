@@ -4,14 +4,14 @@
 </h1> <h1 class = "submission">Edit Your Design</h1>
 <div class="row">
   <%- if @design.errors.present? -%>
-    <div class="large-12 alert-box alert" data-alert>
+    <div class="large-12 alert-box alert radius" data-alert>
       <ul>
         <%- @design.errors.full_messages.each do |error| -%>
           <li><%= error %></li>
         <%- end -%>
       </ul>
+      <%- end -%>
     </div>
-  <%- end -%>
 <div class = "textboxes center-text">
 <%= form_for @design do |f| %>
 
@@ -24,6 +24,6 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.submit "Edit Design!" %>
+  <%= f.submit "Edit Design!", class:"button" %>
 </div>
 <% end %>

@@ -59,5 +59,6 @@ gem 'coveralls', require: false
 gem 'omniauth-facebook'
 gem "recaptcha", :require => "recaptcha/rails"
 gem "mini_magick"
+gem "pg_search"
 
 ruby "2.2.0"

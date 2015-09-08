@@ -12,16 +12,18 @@ feature "As a user I want to be able to visit the site
 so that I can submit a new design.
 So that I can list it on the site" do
   scenario 'Designer fills-in design form correctly and submits' do
-    user = FactoryGirl.create(:user)
+    visit new_user_registration_path
 
-    visit user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign in'
-
+    fill_in 'First name', with: "Testerino"
+    fill_in 'Last name', with: "Mesterino"
+    fill_in 'Email', with: "TesterinoMesterino@gmail.com"
+    fill_in 'Password', with: "testtest"
+    fill_in 'Password confirmation', with: "testtest"
+    click_button 'Sign up'
     visit new_design_path
-    
+    expect(page).to have_content("Select Your Image")
+
+
 
     fill_in 'Design name', with: "Toaster Boy"
     fill_in 'Description', with: "It's an average boy... IN TOASTER FORM!"

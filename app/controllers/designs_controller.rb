@@ -18,7 +18,7 @@ class DesignsController < ApplicationController
     @design.user = current_user
     if verify_recaptcha
       if @design.save
-       flash[:notice] = "Design Submitted!"
+      #  flash[:notice] = "Design Submitted!"
        redirect_to designs_path
       else
        render :new
@@ -56,7 +56,7 @@ class DesignsController < ApplicationController
       flash[:notice] = 'Design Edited'
       redirect_to design_path(@design)
     else
-      flash.now[:alert] = @design.errors.full_messages.join(":( ")
+      # flash.now[:alert] = @design.errors.full_messages.join(":( ")
       render :edit
     end
   end
@@ -69,7 +69,7 @@ class DesignsController < ApplicationController
     else
       if @design.user == current_user || current_user.role == "admin"
         @design.destroy
-        flash[:notice] = "Design Deleted"
+        # flash[:notice] = "Design Deleted"
         redirect_to designs_path
       else
         redirect_to designs_path

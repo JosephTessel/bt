@@ -2,7 +2,7 @@
 <% provide(:title, "Submit a Design") %>
 <div class="row">
   <%- if @design.errors.present? -%>
-    <div class="large-12 alert-box alert" data-alert>
+    <div class="large-12 alert-box alert radius" data-alert>
       <ul>
         <%- @design.errors.full_messages.each do |error| -%>
           <li><%= error %></li>
@@ -25,9 +25,7 @@
 
   <%= recaptcha_tags %><br>
 
-
-  <%= f.submit "Submit Design!" %>
-
+  <%= f.submit "Submit Design!", class:"button" %>
 
 <%- end %>
 </div>

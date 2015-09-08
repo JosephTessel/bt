@@ -16,4 +16,5 @@ def validate_image_size
     errors.add :image, "must be exactly 1200x1200px!"
   end
 end
+  paginates_per 10
 end
