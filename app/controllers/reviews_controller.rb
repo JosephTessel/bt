@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       # ReviewNotifier.new_review(@review).deliver_later
-      flash[:notice] = "Review saved"
+      flash[:alert] = "Review saved"
       redirect_to design_path(params[:design_id])
     else
       flash.now[:alert] = @review.errors.full_messages.join(". ")

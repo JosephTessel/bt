@@ -45,7 +45,6 @@
         </div>
       </div>
     </div>
-
     <% if current_user != nil %>
       <% if @design.user == current_user || current_user.role == "admin" %>
         <div class = "delete_edit">
@@ -57,11 +56,12 @@
 
       <% end %>
     <%end%>
+    <!-- ABOVE IS FINE -->
 <div class="row">
   <div class="small-12 columns">
     <h2 id="review-title" class = "showtitle">
       Reviews
-    </h2
+    </h2>
   </div>
 
   <% @reviews.reverse.each do |review| %>

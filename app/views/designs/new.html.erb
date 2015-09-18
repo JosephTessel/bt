@@ -1,17 +1,17 @@
 <h1 class = "header"><%= link_to "Designs", designs_path%></h1> <h1 class = "submission">Submit a Design</h1>
 <% provide(:title, "Submit a Design") %>
 <div class="row">
-  <%- if @design.errors.present? -%>
+  <% if @design.errors.present? %>
     <div class="large-12 alert-box alert radius" data-alert>
       <ul>
-        <%- @design.errors.full_messages.each do |error| -%>
+        <% @design.errors.full_messages.each do |error| %>
           <li><%= error %></li>
-        <%- end -%>
+        <% end %>
       </ul>
     </div>
+  <%end%>
   </div>
-  <%- end -%>
-<div class = "textboxes center-text">
+<div class = "row">
 <%= form_for @design do |f| %>
 
   <%= f.label :design_image, "Select Your Image" %>
@@ -27,5 +27,5 @@
 
   <%= f.submit "Submit Design!", class:"button" %>
 
-<%- end %>
+<% end %>
 </div>
