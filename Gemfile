@@ -61,4 +61,6 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem "mini_magick"
 gem "pg_search"
 
+gem 'compass-rails'
+
 ruby "2.2.0"
