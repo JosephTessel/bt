@@ -32,8 +32,8 @@ class ReviewsController < ApplicationController
     end
 
     @deletereview = Review.find(params[:id]).destroy
+    # redirect_to design_path(@design)
     flash[:notice] = "Review Deleted"
-    redirect_to design_path(@design)
   end
 
   protected

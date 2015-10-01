@@ -56,7 +56,7 @@ class DesignsController < ApplicationController
       flash[:notice] = 'Design Edited'
       redirect_to design_path(@design)
     else
-      # flash.now[:alert] = @design.errors.full_messages.join(":( ")
+      flash.now[:alert] = @design.errors.full_messages.join(":( ")
       render :edit
     end
   end
