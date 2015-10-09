@@ -3,41 +3,31 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="textboxes">
-  <%= f.label :first_name %><br />
+<h1 class = "submission">Registration</h1>
+<br>
+  <div class="row">
+  <%= f.label :first_name %>
   <%= f.text_field :first_name, autofocus: true %>
-</div>
 
-<div class="field">
 <%= f.label :last_name %><br />
 <%= f.text_field :last_name, autofocus: true %>
-</div>
 
 
-  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
-  <div class="field">
+
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
     <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-
-  <div class="field">
     <%= f.label :profile_photo, "Profile Picture" %><br/>
     <%= f.file_field :profile_photo %>
-  </div>
-  <div class="actions">
+
     <%= f.submit "Sign up", class:"button" %>
   </div>
 <% end %>

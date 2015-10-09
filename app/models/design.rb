@@ -11,9 +11,13 @@ class Design < ActiveRecord::Base
 
 
 def validate_image_size
-  image = MiniMagick::Image.open(design_image.path)
-  unless image[:width] == 1200 && image[:height] == 1200
-    errors.add :image, "must be exactly 1200x1200px!"
+  if design_image.filename == nil
+
+  else
+    image = MiniMagick::Image.open(design_image.path)
+    if image[:width] != 1200 && image[:height] != 1200
+      errors.add :image, "must be exactly 1200x1200px!"
+    end
   end
 end
   paginates_per 10

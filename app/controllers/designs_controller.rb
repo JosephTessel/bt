@@ -4,6 +4,9 @@ class DesignsController < ApplicationController
   end
 
   def new
+    if current_user == nil
+      redirect_to new_user_session_path
+    end
     @design = Design.new
   end
 
@@ -14,6 +17,7 @@ class DesignsController < ApplicationController
   end
 
   def create
+
     @design = Design.new(design_params)
     @design.user = current_user
     if verify_recaptcha
