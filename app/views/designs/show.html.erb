@@ -94,7 +94,7 @@
     <%= form_for [@design, @review] do |f| %>
 
       <%= f.label :body %>
-      <%= f.text_field :body %>
+      <%= f.text_field :body, required:true %>
 
 
       <%= f.submit "Submit", class:"button" %>

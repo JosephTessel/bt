@@ -46,13 +46,16 @@
  }
 
 
-.top-bar {
-  background-color: $maincolor;
-  a {  font-family: $cursivefont;
-  }
-}
 
 .header {
+  font-family: $cursivefont;
+  font-size: 1.65rem;
+  padding-left: .8rem;
+  color: $secondarycolor;
+
+}
+
+.modal-header {
   font-family: $cursivefont;
   font-size: 1.65rem;
   padding-left: .8rem;
@@ -137,9 +140,11 @@ transition-duration: all .15s ease-in-out; */
 
 .top-bar {
   background: $maincolor;
+  background-color: $maincolor;
   height: 2rem;
   a {
     line-height: 2.06rem;
+    font-family: $cursivefont;
   }
 }
 
@@ -148,7 +153,7 @@ transition-duration: all .15s ease-in-out; */
     font-family: $smallfont;
     font-size: .85rem;
     -webkit-transform-style: preserve-3d;
-    line-height: 2.06rem !important;
+    line-height: 2rem !important;
     transition: all .3s ease-out;
 
 }

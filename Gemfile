@@ -33,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
     gem 'pry-rails'
 
+    gem 'better_errors'
+
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -60,7 +63,9 @@ gem 'omniauth-facebook'
 gem "recaptcha", :require => "recaptcha/rails"
 gem "mini_magick"
 gem "pg_search"
+gem 'angularjs-rails'
 
 gem 'compass-rails'
+
 
 ruby "2.2.0"

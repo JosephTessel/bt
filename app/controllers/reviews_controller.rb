@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       # ReviewNotifier.new_review(@review).deliver_later
-      flash[:alert] = "Review saved"
+      # flash[:alert] = "Review saved"
       redirect_to design_path(params[:design_id])
     else
       flash.now[:alert] = @review.errors.full_messages.join(". ")
@@ -25,15 +25,14 @@ class ReviewsController < ApplicationController
     @design = Design.find(params[:design_id])
     @review = Review.find(params[:id])
     if current_user != nil
-      unless @review.user != current_user || current_user.role != "admin"
+      if @review.user == current_user || current_user.role == "admin"
+        @deletereview = Review.find(params[:id]).destroy
+        redirect_to design_path(@design)
+      else
         redirect_to designs_path
         flash[:notice] = "You can't destroy other people's reviews!"
       end
     end
-
-    @deletereview = Review.find(params[:id]).destroy
-    # redirect_to design_path(@design)
-    flash[:notice] = "Review Deleted"
   end
 
   protected

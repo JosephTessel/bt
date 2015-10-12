@@ -15,13 +15,13 @@
 <%= form_for @design do |f| %>
 
   <%= f.label :design_image, "Select Your Image" %>
-  <%= f.file_field :design_image %>
+  <%= f.file_field :design_image, required:true %>
 
   <%= f.label :design_name %>
-  <%= f.text_field :design_name %>
+  <%= f.text_field :design_name, required:true %>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, required:true %>
 
   <%= recaptcha_tags %><br>
 
