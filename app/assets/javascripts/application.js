@@ -16,8 +16,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-//= require modal.js
-//= require angular
+
 
 $( "#review-title").on('click touch', function(){update_reviews(this);});
 $(function(){ $(document).foundation(); });
@@ -38,7 +37,7 @@ function update_reviews(data){
     error: function(data){console.log(data);}
   });
 }
-// 
+//
 // app.service('modal', [function() {
 //     var modal = this;
 //     modal.settings = {};
