@@ -1,0 +1,17 @@
+<% if current_user %>
+  <% if current_user.profile_photo.file != nil %>
+    <section href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="right dropdown profile-photo">  <%= link_to image_tag(current_user.profile_photo)%></section><br>
+  <%else%>
+    <section href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="right dropdown profile-photo">  <%= link_to image_tag("default_image.png")%></section><br>
+  <%end%>
+<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+  <li><a href="/users/edit" target="_blank">Account Settings</a></li>
+  <li><%= link_to "Portfolio", user_path(current_user.id) %></li>
+  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+</ul>
+<% else %>
+<ul class="right">
+  <li><a href="#" data-reveal-id="SignUpModal">Sign Up</a></li>
+  <li><a href="#" data-reveal-id="SignInModal">Sign In</a></li>
+<% end %>
+</ul>

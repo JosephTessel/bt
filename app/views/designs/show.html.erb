@@ -57,48 +57,45 @@
       <% end %>
     <%end%>
     <!-- ABOVE IS FINE -->
-<div class="row">
   <div class="small-12 columns">
     <h2 id="review-title" class = "showtitle">
       Reviews
     </h2>
-  </div>
 
+  </div>
   <% @reviews.reverse.each do |review| %>
     <div class="row">
       <div class="container-total-review">
         <div class="review-container">
-
           <div class="small-11 columns review">
             <% if review.user.profile_photo.file == nil %>
               <%= link_to image_tag("default_image.png"), user_path(review.user.id), class: "left" %>
             <% else %>
               <%= link_to image_tag(review.user.profile_photo), user_path(review.user.id), class: "left" %>
             <% end%>
-            <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>:
-            <%= review.body %><br><br>
-            <% if current_user != nil %>
-              <% if review.user == current_user || current_user.role == "admin"%>
-                <%= button_to "Delete this Review", design_review_path(@design, review.id), method: :delete, class: "button" %>
-              <% end %>
-            <%end%>
+          <%=review.user.first_name.capitalize%> <%=review.user.last_name.capitalize%>:
+          <%= review.body %><br><br>
+          <% if current_user != nil %>
+            <% if review.user == current_user || current_user.role == "admin"%>
+              <%= button_to "Delete this Review", design_review_path(@design, review.id), method: :delete, class: "button" %>
+            <% end %>
+          <%end%>
           </div>
         </div>
       </div>
     </div>
   <% end %>
   <%= paginate @reviews %>
+<div class="row">
+  <div class="small-12 columns">
   <div class="enter-review">
     <div class="container">
-
-    <%= form_for [@design, @review] do |f| %>
-
-      <%= f.label :body %>
-      <%= f.text_field :body, required:true %>
-
-
-      <%= f.submit "Submit", class:"button" %>
-    <% end %>
+      <%= form_for [@design, @review] do |f| %>
+        <%= f.label :body %>
+        <%= f.text_field :body, required:true %>
+        <%= f.submit "Submit", class:"button" %>
+      <% end %>
     </div>
   </div>
+</div>
 </div>

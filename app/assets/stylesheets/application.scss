@@ -21,6 +21,7 @@
 .showtitle.image {
   display: inline-block;
   max-width: 1000px;
+
 }
 
 .actions {
@@ -80,16 +81,23 @@
 
 }
 
-.profile-photo img {
-  width: 2.8rem;
-  height: 2.8rem;
-  float: right;
-  margin-top: 0px;
-  margin-right: 0px;
-  background: inherit;
-  border-radius: 100%;
+.profile-photo {
+  color: $thirdcolor;
+  font-size: 1px;
+  margin-top: -3px;
 
 
+  img {
+    width: 1.8rem;
+    height: 1.8rem;
+    float: right;
+    margin-top: 2.75px;
+    margin-right: 10px;
+    background: inherit;
+    border-radius: 100%;
+
+
+  }
 }
 
 .design-display img{
@@ -119,6 +127,10 @@ transition-duration: all .15s ease-in-out; */
   font-family: $smallfont;
 
 }
+
+
+
+
 /* .design-display:hover .hover-text{
 
   opacity: .8;
@@ -177,6 +189,15 @@ transition-duration: all .15s ease-in-out; */
 
 .top-bar-section .right {
   background-color: $maincolor;
+  transition: all .3s ease-in-out;
+}
+
+/* this controls the header profile-photo box's name text  */
+.top-bar-section ul {
+  font-size: .85rem;
+  margin-right: 4px;
+  background-color: $maincolor ;
+  transition: all .3s ease-in-out;
 }
 
 
@@ -266,6 +287,7 @@ h1 a {
 
 .review {
   word-wrap: break-word;
+  padding-right: -15px;
   img {
     width: 3em;
     height: 3em;

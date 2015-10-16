@@ -6,7 +6,7 @@ class DesignsController < ApplicationController
   def new
     if current_user == nil
       redirect_to new_user_session_path
-      flash[:alert] = "To submit a design, please sign in"
+
     end
     @design = Design.new
   end
