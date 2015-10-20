@@ -25,9 +25,9 @@
     <% if current_user %>
       <section class="profile-photo">
         <% if current_user.profile_photo.file == nil %>
-          <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"> <%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%> <%= link_to image_tag("default_image.png")%> </ul><br>
+          <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"> <%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%>&nbsp; <%= image_tag("default_image.png")%> </ul><br>
         <% else %>
-          <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"><%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%>  <%= link_to image_tag(current_user.profile_photo)%>  </ul><br>
+          <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"><%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%>&nbsp;  <%= image_tag(current_user.profile_photo)%>  </ul><br>
         <% end%>
       </section>
   </section>
@@ -166,7 +166,7 @@
 <br> -->
 <% if current_user %>
 <ul id="hover1" class="f-dropdown" data-dropdown-content>
-  <li><a href="/users/edit" target="_blank">Account Settings</a></li>
+  <li><a href="/users/edit" >Edit Profile</a></li>
   <li><%= link_to "Portfolio", user_path(current_user.id) %></li>
   <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 </ul>
@@ -174,28 +174,31 @@
 <% end %>
 </ul>
 
-<!-- <nav class="top-bar">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/">Inktellectual</a></h1>
-    </li>
-  </ul>
-<section class="top-bar-section right">
-      <% if current_user %>
-          <section class="profile-photo">
-          <% if current_user.profile_photo.file == nil %>
-            <ul href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">  <%= link_to image_tag("default_image.png")%></ul><br>
-          <% else %>
-            <ul href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">  <%= link_to image_tag(current_user.profile_photo)%></ul><br>
-          <% end%>
-        </section>
+<!--
+<div id="EditModal" class="reveal-modal" data-reveal aria-labelledby="EditModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="EditModalTitle", class="modal-header">Edit</h2>
+  <br>
 
-      <% else %>
-      <ul class="right">
-        <li><a href="#" data-reveal-id="SignUpModal">Sign Up</a></li>
-        <li><a href="#" data-reveal-id="SignInModal">Sign In</a></li>
-      <% end %>
-    </ul>
+<%= form_for(:user, url: edit_registration_path(:user)) do |f| %>
+  <div class="row">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, autocomplete: "off" %>
+
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %><br>
+
+    <%= f.label :profile_photo, "Profile Picture" %>
+    <%= f.file_field :profile_photo %>
+
+
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+
+  <%= f.submit "Update", class:"button" %> <br>
   </div>
-  </section>
-</nav> -->
+</div>
+<% end %> -->

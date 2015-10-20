@@ -70,7 +70,7 @@
 
 .top-bar img {
   height: 100%;
-  float: left;
+  /* float: left; */
   margin-right: 10px;
   background-color: $maincolor;
 }
@@ -85,13 +85,13 @@
   color: $thirdcolor;
   font-size: 1px;
   margin-top: -1.27px;
-  float: right;
+  /* float: right; */
   img {
     width: 1.8rem;
     height: 1.8rem;
     /* float: right; */
-    margin-top: 2.75px;
-    margin-right: 10px;
+    margin-top: -4.355px;
+    /* margin-right: 10px; */
     background: inherit;
     border-radius: 100%;
 
@@ -193,9 +193,9 @@ transition-duration: all .15s ease-in-out; */
 /* this controls the header profile-photo box's name text  */
 .top-bar-section ul {
   font-size: .85rem;
-  margin-right: 4px;
+  /* margin-right: 4px; */
   background-color: $maincolor ;
-  transition: all .3s ease-in-out;
+
 }
 
 
