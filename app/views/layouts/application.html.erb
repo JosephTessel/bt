@@ -22,15 +22,15 @@
       </li>
     </ul>
   <section class="top-bar-section right">
-        <% if current_user %>
-            <section class="profile-photo">
-            <% if current_user.profile_photo.file == nil %>
-              <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"> <%=current_user.first_name.capitalize%> <%= link_to image_tag("default_image.png")%> </ul><br>
-            <% else %>
-              <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"><%= link_to image_tag(current_user.profile_photo)%>  <%=current_user.first_name.capitalize%> </ul><br>
-            <% end%>
-          </section>
-
+    <% if current_user %>
+      <section class="profile-photo">
+        <% if current_user.profile_photo.file == nil %>
+          <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"> <%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%> <%= link_to image_tag("default_image.png")%> </ul><br>
+        <% else %>
+          <ul href="#" data-dropdown="hover1" aria-controls="hover1" aria-expanded="false" data-options="is_hover:true;"><%=current_user.first_name.capitalize%> <%=current_user.last_name.capitalize%>  <%= link_to image_tag(current_user.profile_photo)%>  </ul><br>
+        <% end%>
+      </section>
+  </section>
         <% else %>
         <ul class>
           <li><a href="#" data-reveal-id="SignUpModal">Sign Up</a></li>
@@ -158,22 +158,19 @@
   <% end %>
 </div>
 </html>
-
+<!--
 <br>
 <br>
 <br>
 <br>
-<br>
+<br> -->
 <% if current_user %>
 <ul id="hover1" class="f-dropdown" data-dropdown-content>
   <li><a href="/users/edit" target="_blank">Account Settings</a></li>
   <li><%= link_to "Portfolio", user_path(current_user.id) %></li>
   <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 </ul>
-<% else %>
-<ul class="right">
-  <li><a href="#" data-reveal-id="SignUpModal">Sign Up</a></li>
-  <li><a href="#" data-reveal-id="SignInModal">Sign In</a></li>
+
 <% end %>
 </ul>
 
