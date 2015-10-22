@@ -85,13 +85,10 @@
   color: $thirdcolor;
   font-size: 1px;
   margin-top: -2.3px;
-  /* float: right; */
   img {
     width: 1.8rem;
     height: 1.8rem;
-    /* float: right; */
     margin-top: -3px;
-    /* margin-right: 10px; */
     background: inherit;
     border-radius: 100%;
 
@@ -105,17 +102,6 @@
   margin-bottom: 20px;
   transition: all .15s ease-in-out;
   display: inline-block;
-/*   vertical-align: middle;
--webkit-transform: translateZ(0);
-transform: translateZ(0);
-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;
--moz-osx-font-smoothing: grayscale;
--webkit-transition-property: transform;
-transition-property: transform;
--webkit-transition-duration: all .15s ease-in-out;
-transition-duration: all .15s ease-in-out; */
 }
 
 .design-display :hover{

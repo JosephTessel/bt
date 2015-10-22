@@ -17,4 +17,21 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :last_name
     devise_parameter_sanitizer.for(:account_update) << :profile_photo
   end
+  def after_sign_in_path_for(resource)
+  sign_in_url = new_user_session_url
+    if request.referer == sign_in_url
+      super
+    else
+      stored_location_for(resource) || request.referer || root_path
+    end
+  end
+
+  def after_sign_out_path_for(resource)
+    sign_in_url = new_user_session_url
+    if request.referer == sign_in_url
+      super
+    else
+      stored_location_for(resource) || request.referer || root_path
+    end
+  end
 end
