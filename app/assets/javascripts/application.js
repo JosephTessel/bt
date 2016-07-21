@@ -48,3 +48,44 @@ function update_reviews(data){
 //     modal.modal = $('<div id="modal"></div>');
 //     modal.content = $('<div id="content"></div>');
 //     modal.closeBtn = $('<div id="close"><i class="fa fa-times"></div>');
+// credit where credit's due; http://thecodeplayer.com/walkthrough/ripple-click-effect-google-material-design
+
+var element, circle, d, x, y;
+$("button ").click(function(e){
+
+	element = $(this);
+
+	if(element.find(".circle").length == 0)
+		element.prepend("<span class='circle'></span>");
+
+	circle = element.find(".circle");
+	circle.removeClass("animate");
+
+	if(!circle.height() && !circle.width())
+  {
+		d = Math.max(element.outerWidth(), element.outerHeight());
+		circle.css({height: d, width: d});
+	}
+
+	x = e.pageX - element.offset().left - circle.width()/2;
+	y = e.pageY - element.offset().top - circle.height()/2;
+
+	circle.css({top: y+'px', left: x+'px'}).addClass("animate");
+})
+
+
+$(function(){
+ var shrinkHeader = 300;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+      if ( scroll >= shrinktopbar ) {
+           $('.topbar').addClass('shrink');
+        }
+        else {
+            $('.topbar').removeClass('shrink');
+        }
+  });
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});
